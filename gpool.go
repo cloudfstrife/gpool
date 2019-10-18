@@ -127,6 +127,7 @@ func (pool *Pool) GetOne() (Item, error) {
 			if retry <= pool.Config.AcquireRetryAttempts {
 				retry++
 				go pool.Extend(pool.Config.AcquireIncrement)
+				time.Sleep(time.Duration(pool.Config.AcquireRetryDuration) * time.Millisecond)
 				continue
 			}
 			return nil, errors.New("Unable GET Item")

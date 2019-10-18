@@ -20,6 +20,8 @@ type Config struct {
 	MaxPoolSize int
 	//AcquireRetryAttempts retry times when get item Failed. Default: 5
 	AcquireRetryAttempts int
+	//AcquireRetryDuration retry time Duration.Unit:Millisecond  Default: 10
+	AcquireRetryDuration int
 	//AcquireIncrement create item count when pool is empty. Default: 5
 	AcquireIncrement int
 	//TestDuration interval time between check item avaiable.Unit:Millisecond Default: 1000
@@ -34,11 +36,12 @@ type Config struct {
 
 //String String
 func (config *Config) String() string {
-	result := fmt.Sprintf("InitialPoolSize : %d \n MinPoolSize : %d \n MaxPoolSize : %d \n AcquireRetryAttempts : %d \n AcquireIncrement : %d \n TestDuration : %d \n TestOnGetItem : %t \n Debug : %t \n",
+	result := fmt.Sprintf("InitialPoolSize : %d \n MinPoolSize : %d \n MaxPoolSize : %d \n AcquireRetryAttempts : %d \n AcquireRetryDuration : %d \n AcquireIncrement : %d \n TestDuration : %d \n TestOnGetItem : %t \n Debug : %t \n",
 		config.InitialPoolSize,
 		config.MinPoolSize,
 		config.MaxPoolSize,
 		config.AcquireRetryAttempts,
+		config.AcquireRetryDuration,
 		config.AcquireIncrement,
 		config.TestDuration,
 		config.TestOnGetItem,
@@ -58,6 +61,7 @@ func DefaultConfig() *Config {
 		MinPoolSize:          2,
 		MaxPoolSize:          15,
 		AcquireRetryAttempts: 5,
+		AcquireRetryDuration: 10,
 		AcquireIncrement:     5,
 		TestDuration:         1000,
 		TestOnGetItem:        false,
