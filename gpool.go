@@ -5,21 +5,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"sync"
 	"time"
-)
 
-//Pool pool class
-type Pool struct {
-	Config       *Config
-	Items        *list.List
-	cond         *sync.Cond
-	context      context.Context
-	shutdownFunc context.CancelFunc
-	shutdownChan chan int
-	NewFunc      func() Item
-}
+	log "github.com/sirupsen/logrus"
+)
 
 //Item pool item
 type Item interface {
@@ -28,14 +18,24 @@ type Item interface {
 	Check() error
 }
 
+//Creater create item function
+type Creater func() Item
+
+//Pool pool class
+type Pool struct {
+	Config   *Config
+	items    *list.List
+	lock     sync.Mutex
+	shutdown context.CancelFunc
+	Creater  Creater
+}
+
 //DefaultPool create a pool with default config
-func DefaultPool() *Pool {
+func DefaultPool(creater Creater) *Pool {
 	var result = &Pool{
-		Config:       DefaultConfig(),
-		cond:         sync.NewCond(&sync.Mutex{}),
-		shutdownChan: make(chan int, 1),
+		Config:  DefaultConfig(),
+		Creater: creater,
 	}
-	result.context, result.shutdownFunc = context.WithCancel(context.Background())
 	return result
 }
 
@@ -47,16 +47,17 @@ func (pool *Pool) Initial() {
 
 	pool.Log("START", "Pool Initial")
 
-	pool.cond.L.Lock()
-	defer pool.cond.L.Unlock()
-	pool.Items = list.New()
+	pool.lock.Lock()
+	defer pool.lock.Unlock()
+	pool.items = list.New()
 
 	//push item into pool
 	go pool.Extend(pool.Config.InitialPoolSize)
-	pool.cond.Wait()
 
 	//start check avaiable goroutine
-	go pool.StartCheck()
+	ctx, cf := context.WithCancel(context.Background())
+	pool.shutdown = cf
+	go pool.StartCheck(ctx)
 
 	pool.Log("DONE", "Pool Initial")
 }
@@ -65,32 +66,29 @@ func (pool *Pool) Initial() {
 func (pool *Pool) Extend(count int) {
 	pool.Log("START", fmt.Sprintf("Extend Count : %d", count))
 
-	defer pool.cond.Signal()
-	defer pool.cond.L.Unlock()
-	pool.cond.L.Lock()
-	if pool.Items.Len() >= pool.Config.MaxPoolSize {
+	if pool.items.Len() >= pool.Config.MaxPoolSize {
 		return
 	}
 	for i := 0; i < count; i++ {
-		var item = pool.NewFunc()
+		var item = pool.Creater()
 		err := item.Initial(pool.Config.Params)
 		if err != nil {
 			log.Println("ERROR : Iem Initial ERROR \n", err)
 			continue
 		}
-		pool.Items.PushBack(item)
+		pool.items.PushBack(item)
 	}
 
-	pool.Log("DONE", fmt.Sprintf("Extend Count : %d ,Pool size : %d", count, pool.Items.Len()))
+	pool.Log("DONE", fmt.Sprintf("Extend Count : %d ,Pool size : %d", count, pool.items.Len()))
 }
 
 //StartCheck start check avaiable goroutine
-func (pool *Pool) StartCheck() {
+func (pool *Pool) StartCheck(ctx context.Context) {
 	t := time.NewTicker(time.Duration(pool.Config.TestDuration) * time.Millisecond)
 a:
 	for {
 		select {
-		case <-pool.context.Done():
+		case <-ctx.Done():
 			break a
 		case <-t.C:
 			pool.Log("START", "CheckAvaiable")
@@ -98,14 +96,13 @@ a:
 			pool.Log("DONE", "CheckAvaiable")
 		}
 	}
-	pool.shutdownChan <- 1
 }
 
 //CheckAvaiable check item avaiable
 func (pool *Pool) CheckAvaiable() {
-	pool.cond.L.Lock()
-	defer pool.cond.L.Unlock()
-	for i := pool.Items.Front(); i != nil; i = i.Next() {
+	pool.lock.Lock()
+	defer pool.lock.Unlock()
+	for i := pool.items.Front(); i != nil; i = i.Next() {
 		item, Ok := i.Value.(Item)
 		if !Ok {
 			log.Println("ERROR : Class Cast ERROR while CheckAvaiable")
@@ -113,69 +110,66 @@ func (pool *Pool) CheckAvaiable() {
 		err := item.Check()
 		if err != nil {
 			log.Println("ERROR : CheckAvaiable ERROR \n", err)
-			pool.Items.Remove(i)
+			pool.items.Remove(i)
 		}
 	}
 }
 
 //GetOne get a pool item
 func (pool *Pool) GetOne() (Item, error) {
-	pool.cond.L.Lock()
-	defer pool.cond.L.Unlock()
+	pool.lock.Lock()
+	defer pool.lock.Unlock()
 	retry := 0
 	for {
 		//检查链表头元素是否为空，防止链表遍历结束依然未获取到连接时报错
-		i := pool.Items.Front()
+		i := pool.items.Front()
 		if i == nil {
 			if retry <= pool.Config.AcquireRetryAttempts {
 				retry++
 				go pool.Extend(pool.Config.AcquireIncrement)
-				pool.cond.Wait()
 				continue
 			}
 			return nil, errors.New("Unable GET Item")
 		}
+		pool.items.Remove(i)
 		item, ok := i.Value.(Item)
-		pool.Items.Remove(i)
 		if !ok {
 			return nil, errors.New("Class Cast ERROR while Get Item")
 		}
-		if pool.Items.Len() < pool.Config.MinPoolSize {
+		if pool.items.Len() < pool.Config.MinPoolSize {
 			go pool.Extend(pool.Config.AcquireIncrement)
-			pool.cond.Wait()
 		}
-		if !pool.Config.TestOnGetItem {
-			return item, nil
+		if pool.Config.TestOnGetItem {
+			err := item.Check()
+			return item, err
 		}
-		if item.Check() == nil {
-			return item, nil
-		}
+		return item, nil
 	}
 }
 
 //BackOne  give back a pool item
 func (pool *Pool) BackOne(item Item) {
-	pool.cond.L.Lock()
-	defer pool.cond.L.Unlock()
-	if pool.Items.Len() >= pool.Config.MaxPoolSize {
+	pool.lock.Lock()
+	defer pool.lock.Unlock()
+	if pool.items.Len() >= pool.Config.MaxPoolSize {
 		err := item.Destory()
 		if err != nil {
 			log.Println("ERROR : Item Destory ERROR While BackOne \n", err)
 		}
 		return
 	}
-	pool.Items.PushBack(item)
+	pool.items.PushBack(item)
 	return
 }
 
 //Shutdown shutdown pool
 func (pool *Pool) Shutdown() {
-	pool.cond.L.Lock()
-	defer pool.cond.L.Unlock()
+	pool.lock.Lock()
+	defer pool.lock.Unlock()
 	pool.Log("START", "Shutdown Pool")
-	for i := pool.Items.Front(); i != nil; i = pool.Items.Front() {
+	for i := pool.items.Front(); i != nil; i = pool.items.Front() {
 		item, ok := i.Value.(Item)
-		pool.Items.Remove(i)
+		pool.items.Remove(i)
 		if !ok {
 			log.Println("ERROR : Class Cast ERROR while shutdown pool")
 			continue
@@ -185,8 +179,7 @@ func (pool *Pool) Shutdown() {
 			log.Println("ERROR : Item Destory ERROR While Shutdown \n", err)
 		}
 	}
-	pool.shutdownFunc()
-	<-pool.shutdownChan
+	pool.shutdown()
 	pool.Log("DONE", "Shutdown Pool")
 }
 
