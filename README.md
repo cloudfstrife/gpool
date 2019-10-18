@@ -119,7 +119,6 @@ omit
 | MinPoolSize          | min item in pool.                                                | int               | 2       |
 | MaxPoolSize          | max item in pool.                                                | int               | 15      |
 | AcquireRetryAttempts | retry times when get item Failed.                                | int               | 5       |
-| AcquireRetryDuration | retry time Duration.Unit:Millisecond                             | int               | 10      |
 | AcquireIncrement     | create item count when pool is empty.                            | int               | 5       |
 | TestDuration         | interval time between check item avaiable.Unit:Millisecond       | int               | 1000    |
 | TestOnGetItem        | test avaiable when get item.                                     | bool              | false   |

@@ -119,7 +119,6 @@ func ClosePool() {
 | MinPoolSize          | 池中保留的最小元素数量                                   | int               | 2      |
 | MaxPoolSize          | 池中保留的最大连元素数量                                 | int               | 15     |
 | AcquireRetryAttempts | 定义在新连接失败后重复尝试的次数                         | int               | 5      |
-| AcquireRetryDuration | 定义在新连接失败后重复尝试之间的间隔时间，单位：毫秒     | int               | 10     |
 | AcquireIncrement     | 当池中的元素耗尽时，一次同时创建的元素数                 | int               | 5      |
 | TestDuration         | 连接有效性检查间隔，单位毫秒                             | int               | 1000   |
 | TestOnGetItem        | 如果设为true那么在取得元素的同时将校验元素的有效性       | bool              | false  |
