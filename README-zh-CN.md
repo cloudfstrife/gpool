@@ -63,13 +63,10 @@ var (
 
 func init() {
 	once.Do(func() {
-		pool = gpool.DefaultPool()
+		pool = gpool.DefaultPool(NewConnection)
 		pool.Config.LoadToml("general.toml")
-
 		fmt.Println(pool.Config)
-		pool.NewFunc = NewConnection
 		pool.Initial()
-
 	})
 }
 ```
@@ -131,6 +128,7 @@ func ClosePool() {
 
 ### 目录结构
 
+
 ```
 .
 |-- cmd
@@ -139,13 +137,12 @@ func ClosePool() {
 |   `-- server
 |       `-- server.go
 |-- dial
+|   |-- connection.go
 |   `-- dial.go
 |-- general.toml
 |-- go.mod
-|-- go.sum
-`-- gpool
-    |-- config.go
-    `-- gpool.go
+`-- go.sum
+
 ```
 
 **cmd/client/client.go**
@@ -154,11 +151,12 @@ func ClosePool() {
 package main
 
 import (
-	"app/general/dial"
 	"fmt"
 	"log"
 	"sync"
 	"time"
+
+	"app/testing/dial"
 )
 
 func main() {
@@ -191,6 +189,7 @@ func send(i, j int) {
 		log.Fatal(err)
 	}
 }
+
 ```
 **cmd/server/server.go**
 
@@ -243,6 +242,7 @@ func Proc(conn net.Conn, i int) {
 		}
 	}
 }
+
 ```
 
 **dial/dial.go**
@@ -266,13 +266,10 @@ var (
 
 func init() {
 	once.Do(func() {
-		pool = gpool.DefaultPool()
+		pool = gpool.DefaultPool(NewConnection)
 		pool.Config.LoadToml("general.toml")
-
 		fmt.Println(pool.Config)
-		pool.NewFunc = NewConnection
 		pool.Initial()
-
 	})
 }
 
@@ -280,6 +277,43 @@ func init() {
 func NewConnection() gpool.Item {
 	return &Connection{}
 }
+
+//GetConnection 获取连接
+func GetConnection() (net.Conn, error) {
+	item, err := pool.GetOne()
+	if err != nil {
+		return nil, err
+	}
+	con, ok := item.(*Connection)
+	if ok {
+		return con.TCPConn, nil
+	}
+	return nil, errors.New("类型转换错误")
+}
+
+//CloseConnection 关闭连接
+func CloseConnection(conn net.Conn) {
+	pool.BackOne(&Connection{
+		TCPConn: conn,
+	})
+}
+
+//ClosePool 关闭连接池
+func ClosePool() {
+	pool.Shutdown()
+}
+
+```
+
+**dial/connection.go**
+
+```
+package dial
+
+import (
+	"fmt"
+	"net"
+)
 
 //Connection 连接池对象
 type Connection struct {
@@ -307,30 +341,6 @@ func (c *Connection) Check() error {
 	return nil
 }
 
-//GetConnection 获取连接
-func GetConnection() (net.Conn, error) {
-	item, err := pool.GetOne()
-	if err != nil {
-		return nil, err
-	}
-	con, ok := item.(*Connection)
-	if ok {
-		return con.TCPConn, nil
-	}
-	return nil, errors.New("类型转换错误")
-}
-
-//CloseConnection 关闭连接
-func CloseConnection(conn net.Conn) {
-	pool.BackOne(&Connection{
-		TCPConn: conn,
-	})
-}
-
-//ClosePool 关闭连接池
-func ClosePool() {
-	pool.Shutdown()
-}
 ```
 
 **general.toml**
@@ -353,19 +363,30 @@ Debug = false
 **go.mod**
 
 ```
-module app/general
+module app/testing
 
-go 1.12
+go 1.13
 
-require github.com/cloudfstrife/gpool latest
+require (
+	github.com/cloudfstrife/gpool v0.0.2
+	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
+	github.com/sirupsen/logrus v1.4.2
+	golang.org/x/sys v0.0.0-20191010194322-b09406accb47 // indirect
+)
+
+replace github.com/cloudfstrife/gpool v0.0.2 => E:\space\gpool
+
 ```
 
-### 运行与测试
+### 运行 & 测试
 
 ```
-go build app/general/cmd/server
+go build app/testing/cmd/server
 ./server
 
-go build  app/general/cmd/client
+```
+---
+```
+go build app/testing/cmd/client
 ./client
 ```

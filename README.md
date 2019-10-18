@@ -139,13 +139,12 @@ here is a Complete Example
 |   `-- server
 |       `-- server.go
 |-- dial
+|   |-- connection.go
 |   `-- dial.go
 |-- general.toml
 |-- go.mod
-|-- go.sum
-`-- gpool
-    |-- config.go
-    `-- gpool.go
+`-- go.sum
+
 ```
 
 **cmd/client/client.go**
@@ -154,11 +153,12 @@ here is a Complete Example
 package main
 
 import (
-	"app/general/dial"
 	"fmt"
 	"log"
 	"sync"
 	"time"
+
+	"app/testing/dial"
 )
 
 func main() {
@@ -183,7 +183,7 @@ func main() {
 func send(i, j int) {
 	conn, err := dial.GetConnection()
 	if err != nil {
-		log.Fatalf("Thread %d get connection failed %v", i, err)
+		log.Fatalf("第%d个线程获取连接失败%v", i, err)
 	}
 	defer dial.CloseConnection(conn)
 	_, err = conn.Write([]byte(fmt.Sprintf("%d %d\n", i, j)))
@@ -191,6 +191,7 @@ func send(i, j int) {
 		log.Fatal(err)
 	}
 }
+
 ```
 **cmd/server/server.go**
 
@@ -236,13 +237,14 @@ func Proc(conn net.Conn, i int) {
 
 		if len(slist) == 2 {
 			if slist[1] == "999" {
-				fmt.Printf("Connection %d received : Thread %s Send Times %s \n", i, slist[0], slist[1])
+				fmt.Printf("第%d个连接收到消息 : 线程 %s 第 %s 次发送\n", i, slist[0], slist[1])
 			}
 		} else {
 			fmt.Println(v)
 		}
 	}
 }
+
 ```
 
 **dial/dial.go**
@@ -266,48 +268,19 @@ var (
 
 func init() {
 	once.Do(func() {
-		pool = gpool.DefaultPool()
+		pool = gpool.DefaultPool(NewConnection)
 		pool.Config.LoadToml("general.toml")
-
 		fmt.Println(pool.Config)
-		pool.NewFunc = NewConnection
 		pool.Initial()
-
 	})
 }
 
-//NewConnection Create Pool Item 
+//NewConnection 获取新连接
 func NewConnection() gpool.Item {
 	return &Connection{}
 }
 
-//Connection Pool Item
-type Connection struct {
-	TCPConn net.Conn
-}
-
-//Initial Initial Item
-func (c *Connection) Initial(params map[string]string) error {
-	con, err := net.Dial("tcp", params["host"]+":"+params["port"])
-	if err != nil {
-		return err
-	}
-	c.TCPConn = con
-	return nil
-}
-
-//Destory Destory Item 
-func (c *Connection) Destory() error {
-	return c.TCPConn.Close()
-}
-
-//Check Check item Avaiable
-func (c *Connection) Check() error {
-	fmt.Println("Check item Avaiable")
-	return nil
-}
-
-//GetConnection Get Item 
+//GetConnection 获取连接
 func GetConnection() (net.Conn, error) {
 	item, err := pool.GetOne()
 	if err != nil {
@@ -317,20 +290,59 @@ func GetConnection() (net.Conn, error) {
 	if ok {
 		return con.TCPConn, nil
 	}
-	return nil, errors.New("Class cast ERROR")
+	return nil, errors.New("类型转换错误")
 }
 
-//CloseConnection Close Connection
+//CloseConnection 关闭连接
 func CloseConnection(conn net.Conn) {
 	pool.BackOne(&Connection{
 		TCPConn: conn,
 	})
 }
 
-//ClosePool Shutdown the pool
+//ClosePool 关闭连接池
 func ClosePool() {
 	pool.Shutdown()
 }
+
+```
+
+**dial/connection.go**
+
+```
+package dial
+
+import (
+	"fmt"
+	"net"
+)
+
+//Connection 连接池对象
+type Connection struct {
+	TCPConn net.Conn
+}
+
+//Initial 初始化
+func (c *Connection) Initial(params map[string]string) error {
+	con, err := net.Dial("tcp", params["host"]+":"+params["port"])
+	if err != nil {
+		return err
+	}
+	c.TCPConn = con
+	return nil
+}
+
+//Destory 销毁连接
+func (c *Connection) Destory() error {
+	return c.TCPConn.Close()
+}
+
+//Check 检查元素连接是否可用
+func (c *Connection) Check() error {
+	fmt.Println("检查连接可用")
+	return nil
+}
+
 ```
 
 **general.toml**
@@ -353,19 +365,30 @@ Debug = false
 **go.mod**
 
 ```
-module app/general
+module app/testing
 
-go 1.12
+go 1.13
 
-require github.com/cloudfstrife/gpool latest
+require (
+	github.com/cloudfstrife/gpool v0.0.2
+	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
+	github.com/sirupsen/logrus v1.4.2
+	golang.org/x/sys v0.0.0-20191010194322-b09406accb47 // indirect
+)
+
+replace github.com/cloudfstrife/gpool v0.0.2 => E:\space\gpool
+
 ```
 
 ### RUN & TEST
 
 ```
-go build app/general/cmd/server
+go build app/testing/cmd/server
 ./server
 
-go build  app/general/cmd/client
+```
+---
+```
+go build app/testing/cmd/client
 ./client
 ```
