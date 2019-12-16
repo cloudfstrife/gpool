@@ -75,7 +75,7 @@ func DefaultConfig() Config {
 		MaxPoolSize:          15,
 		AcquireRetryAttempts: 5,
 		AcquireIncrement:     5,
-		TestDuration:         1000,
+		TestDuration:         60000,
 		TestOnGetItem:        false,
 		Params:               make(map[string]string),
 	}

@@ -14,23 +14,23 @@ func TestCreateDefaultConfig(t *testing.T) {
 		MaxPoolSize:          15,
 		AcquireRetryAttempts: 5,
 		AcquireIncrement:     5,
-		TestDuration:         1000,
+		TestDuration:         60000,
 		TestOnGetItem:        false,
 		Params:               make(map[string]string),
 	}
 	got := DefaultConfig()
 	if !cmp.Equal(want, got) {
-		t.Errorf("TestCreateDefaultConfig Failed \n want : %#v \n got %#v", want, got)
+		t.Errorf("Want : %#v got %#v", want, got)
 	}
 }
 
 func TestString(t *testing.T) {
-	want := "InitialPoolSize : 5 \n MinPoolSize : 2 \n MaxPoolSize : 15 \n AcquireRetryAttempts : 5 \n AcquireIncrement : 5 \n TestDuration : 1000 \n TestOnGetItem : false \nParams:\n\tserver : 127.0.0.1 \n"
+	want := "InitialPoolSize : 5 \n MinPoolSize : 2 \n MaxPoolSize : 15 \n AcquireRetryAttempts : 5 \n AcquireIncrement : 5 \n TestDuration : 60000 \n TestOnGetItem : false \nParams:\n\tserver : 127.0.0.1 \n"
 	defaultConfig := DefaultConfig()
 	defaultConfig.Params["server"] = "127.0.0.1"
 	got := defaultConfig.String()
 	if !cmp.Equal(want, got) {
-		t.Errorf("TestString Failed \n want : %#v \n got  : %#v", want, got)
+		t.Errorf("WANT : %#v FIND : %#v", want, got)
 	}
 }
 
@@ -51,10 +51,10 @@ func TestLoadToml(t *testing.T) {
 	v := DefaultConfig()
 	err := v.LoadToml("./testing/testing_config.toml")
 	if err != nil {
-		t.Errorf("TestLoadToml Failed : %#v", err)
+		t.Errorf("Got error :%#v", err)
 	}
 	if !cmp.Equal(want, v) {
-		t.Errorf("TestLoadToml Failed \n want : %#v \n got  : %#v", want, v)
+		t.Errorf("WANT : %#v FIND : %#v", want, v)
 	}
 }
 
@@ -62,7 +62,7 @@ func TestLoadTomlNotExsist(t *testing.T) {
 	v := DefaultConfig()
 	err := v.LoadToml("./testing/testing.toml")
 	if err == nil {
-		t.Errorf("TestLoadTomlNotExsist Failed \n want : PathError \n got  : %#v", err)
+		t.Errorf("WANT : PathError FIND : %#v", err)
 	}
 }
 
@@ -71,6 +71,6 @@ func TestLoadTomlNotToml(t *testing.T) {
 	v := DefaultConfig()
 	err := v.LoadToml("./testing/goline.report")
 	if err == nil {
-		t.Errorf("TestLoadTomlNotExsist Failed \n want : %#v \n got  : %#v", want, err)
+		t.Errorf("WANT : %#v FIND : %#v", want, err)
 	}
 }

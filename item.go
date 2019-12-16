@@ -4,5 +4,5 @@ package gpool
 type Item interface {
 	Initial(map[string]string) error
 	Destory() error
-	Check() error
+	Check(map[string]string) error
 }

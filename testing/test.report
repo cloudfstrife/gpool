@@ -1,25 +1,174 @@
-{"Time":"2019-12-16T09:16:35.4812896+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig"}
-{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"=== RUN   TestCreateDefaultConfig\n"}
-{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"--- PASS: TestCreateDefaultConfig (0.00s)\n"}
-{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Elapsed":0}
-{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestString"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"=== RUN   TestString\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"--- PASS: TestString (0.00s)\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Elapsed":0}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"=== RUN   TestLoadToml\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"--- PASS: TestLoadToml (0.00s)\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Elapsed":0}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"=== RUN   TestLoadTomlNotExsist\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"time=\"2019-12-16T09:16:35+08:00\" level=error msg=\"load toml config ERROR - FILE NOT EXIST \" error=\"CreateFile ./testing/testing.toml: The system cannot find the file specified.\"\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"--- PASS: TestLoadTomlNotExsist (0.02s)\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Elapsed":0.02}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"=== RUN   TestLoadTomlNotToml\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"time=\"2019-12-16T09:16:35+08:00\" level=error msg=\"load toml config ERROR - FILE NOT EXIST \" error=\"CreateFile ./testing/goline.report: The system cannot find the file specified.\"\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"--- PASS: TestLoadTomlNotToml (0.00s)\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Elapsed":0}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"PASS\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"ok  \tgithub.com/cloudfstrife/gpool\t0.238s\n"}
-{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Elapsed":0.238}
+{"Time":"2019-12-16T16:54:06.7991481+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"=== RUN   TestCreateDefaultConfig\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"--- PASS: TestCreateDefaultConfig (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestString"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"=== RUN   TestString\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"--- PASS: TestString (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"=== RUN   TestLoadToml\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"load config\" tomlFileName=./testing/testing_config.toml\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"--- PASS: TestLoadToml (0.02s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Elapsed":0.02}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"=== RUN   TestLoadTomlNotExsist\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"load config\" tomlFileName=./testing/testing.toml\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"time=\"2019-12-16T16:54:06+08:00\" level=error msg=\"load toml config ERROR - FILE NOT EXIST \" error=\"CreateFile ./testing/testing.toml: The system cannot find the file specified.\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"--- PASS: TestLoadTomlNotExsist (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"=== RUN   TestLoadTomlNotToml\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"load config\" tomlFileName=./testing/goline.report\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"time=\"2019-12-16T16:54:06+08:00\" level=error msg=\"load toml config ERROR - FILE TYPE ERROR\" logrus_error=\"can not add field \\\"got\\\"\" need=\"*.toml\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"--- PASS: TestLoadTomlNotToml (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestDefaultPool"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestDefaultPool","Output":"=== RUN   TestDefaultPool\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestDefaultPool","Output":"--- PASS: TestDefaultPool (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestDefaultPool","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"=== RUN   TestGetOne\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Output":"--- PASS: TestGetOne (0.00s)\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOne","Elapsed":0}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"=== RUN   TestGetOneWithExtend\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:06.8280736+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"time=\"2019-12-16T16:54:06+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Output":"--- PASS: TestGetOneWithExtend (1.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestGetOneWithExtend","Elapsed":1}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend","Output":"=== RUN   TestExtend\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend","Output":"--- PASS: TestExtend (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestExtend","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize","Output":"=== RUN   TestExtendOverMaxPoolSize\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=16\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize","Output":"--- PASS: TestExtendOverMaxPoolSize (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestExtendOverMaxPoolSize","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"=== RUN   TestBackOne\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Output":"--- PASS: TestBackOne (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOne","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"=== RUN   TestBackOneWithDrop\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Output":"--- PASS: TestBackOneWithDrop (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestBackOneWithDrop","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"=== RUN   TestInitial\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Output":"--- PASS: TestInitial (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestInitial","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"=== RUN   TestInitialWithError\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[InitError:Testing]}\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"Iem Initial Failed\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Output":"--- PASS: TestInitialWithError (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestInitialWithError","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"=== RUN   TestShutdown\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START Initial Pool\" config=\"{5 2 15 5 5 60000 false map[]}\"\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8164643+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"Done Initial Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Shutdown Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Shutdown Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Output":"--- PASS: TestShutdown (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestShutdown","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"=== RUN   TestCheckAvaiable\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | CheckAvaiable \" pool Size=5\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | CheckAvaiable\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Output":"--- PASS: TestCheckAvaiable (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiable","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"=== RUN   TestCheckAvaiableWithError\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | CheckAvaiable \" pool Size=5\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"CheckAvaiable ERROR \" error=Testing\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"CheckAvaiable ERROR \" error=Testing\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"CheckAvaiable ERROR \" error=Testing\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"CheckAvaiable ERROR \" error=Testing\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=error msg=\"CheckAvaiable ERROR \" error=Testing\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | CheckAvaiable\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"START | Extend Pool\" count=5\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"time=\"2019-12-16T16:54:07+08:00\" level=debug msg=\"DONE | Extend Pool\"\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Output":"--- PASS: TestCheckAvaiableWithError (0.00s)\n"}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestCheckAvaiableWithError","Elapsed":0}
+{"Time":"2019-12-16T16:54:07.8173908+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"PASS\n"}
+{"Time":"2019-12-16T16:54:07.8244406+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"ok  \tgithub.com/cloudfstrife/gpool\t1.199s\n"}
+{"Time":"2019-12-16T16:54:07.8244406+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Elapsed":1.199}
