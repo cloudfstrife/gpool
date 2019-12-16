@@ -1,0 +1,11 @@
+InitialPoolSize = 10
+MinPoolSize = 4
+MaxPoolSize = 30
+AcquireRetryAttempts = 10
+AcquireIncrement = 10
+TestDuration = 60000
+TestOnGetItem = false
+
+[Params]
+  host = "127.0.0.1"
+  port = "11211"

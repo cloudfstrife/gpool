@@ -1,0 +1,25 @@
+{"Time":"2019-12-16T09:16:35.4812896+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig"}
+{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"=== RUN   TestCreateDefaultConfig\n"}
+{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Output":"--- PASS: TestCreateDefaultConfig (0.00s)\n"}
+{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestCreateDefaultConfig","Elapsed":0}
+{"Time":"2019-12-16T09:16:35.5151976+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestString"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"=== RUN   TestString\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Output":"--- PASS: TestString (0.00s)\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestString","Elapsed":0}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"=== RUN   TestLoadToml\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Output":"--- PASS: TestLoadToml (0.00s)\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadToml","Elapsed":0}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"=== RUN   TestLoadTomlNotExsist\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"time=\"2019-12-16T09:16:35+08:00\" level=error msg=\"load toml config ERROR - FILE NOT EXIST \" error=\"CreateFile ./testing/testing.toml: The system cannot find the file specified.\"\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Output":"--- PASS: TestLoadTomlNotExsist (0.02s)\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotExsist","Elapsed":0.02}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"run","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"=== RUN   TestLoadTomlNotToml\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"time=\"2019-12-16T09:16:35+08:00\" level=error msg=\"load toml config ERROR - FILE NOT EXIST \" error=\"CreateFile ./testing/goline.report: The system cannot find the file specified.\"\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Output":"--- PASS: TestLoadTomlNotToml (0.00s)\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Test":"TestLoadTomlNotToml","Elapsed":0}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"PASS\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"output","Package":"github.com/cloudfstrife/gpool","Output":"ok  \tgithub.com/cloudfstrife/gpool\t0.238s\n"}
+{"Time":"2019-12-16T09:16:35.5161952+08:00","Action":"pass","Package":"github.com/cloudfstrife/gpool","Elapsed":0.238}

@@ -1,0 +1,10 @@
+mode: set
+github.com/cloudfstrife/gpool/config.go:34.39,45.40 3 1
+github.com/cloudfstrife/gpool/config.go:48.2,48.15 1 1
+github.com/cloudfstrife/gpool/config.go:45.40,47.3 1 1
+github.com/cloudfstrife/gpool/config.go:52.59,55.16 3 1
+github.com/cloudfstrife/gpool/config.go:59.2,59.45 1 1
+github.com/cloudfstrife/gpool/config.go:66.2,67.12 2 1
+github.com/cloudfstrife/gpool/config.go:55.16,58.3 2 1
+github.com/cloudfstrife/gpool/config.go:59.45,65.3 2 1
+github.com/cloudfstrife/gpool/config.go:71.29,82.2 1 1
