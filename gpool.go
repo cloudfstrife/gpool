@@ -64,13 +64,13 @@ func (pool *Pool) extend(count int) {
 		"count", count,
 	).Debug("START | Extend Pool")
 
+	pool.cond.L.Lock()
 	defer pool.cond.Signal()
 	defer pool.cond.L.Unlock()
 	if pool.shutdown {
 		log.Debug(ErrHasBeenShotdown)
 		return
 	}
-	pool.cond.L.Lock()
 	for i := 0; i < count; i++ {
 		if pool.items.Len() >= pool.Config.MaxPoolSize {
 			break
@@ -169,7 +169,7 @@ func (pool *Pool) BackOne(item Item) {
 	pool.cond.L.Lock()
 	defer pool.cond.L.Unlock()
 	if pool.items.Len() >= pool.Config.MaxPoolSize {
-		err := item.Destory()
+		err := item.Destory(pool.Config.Params)
 		if err != nil {
 			log.WithError(err).Error("Item Destory ERROR While BackOne")
 		}
@@ -185,14 +185,14 @@ func (pool *Pool) Shutdown(wg *sync.WaitGroup) {
 	pool.cond.L.Lock()
 	pool.shutdown = true
 	defer pool.cond.L.Unlock()
-	for i := pool.items.Front(); i != nil; i = i.Next() {
+	for i := pool.items.Front(); i != nil; i = pool.items.Front() {
 		pool.items.Remove(i)
 		item, ok := i.Value.(Item)
 		if !ok {
 			log.Error(ErrTypeConvert)
 			continue
 		}
-		err := item.Destory()
+		err := item.Destory(pool.Config.Params)
 		if err != nil {
 			log.WithError(err).Error("Item Destory ERROR While Shutdown ")
 		}

@@ -10,7 +10,7 @@ Item interface function list
 
 ```go
 Initial(map[string]string) error
-Destory() error
+Destory(map[string]string) error
 Check(map[string]string) error
 ```
 
@@ -33,7 +33,7 @@ func (c *Connection) Initial(params map[string]string) error {
 }
 
 //Destory Destory Connection
-func (c *Connection) Destory() error {
+func (c *Connection) Destory(params map[string]string) error {
 	return c.TCPConn.Close()
 }
 

@@ -13,7 +13,7 @@
 
 .scannerwork
 
-./testing/test.report
-./testing/cover.report
-./testing/golangci-line.xml
-./testing/goline.report
+testing/test.report
+testing/cover.report
+testing/golangci-line.xml
+testing/goline.report

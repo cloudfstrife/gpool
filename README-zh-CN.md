@@ -10,7 +10,7 @@ Go语言实现，用于快速构建资源池的库
 
 ```go
 Initial(map[string]string) error
-Destory() error
+Destory(map[string]string) error
 Check(map[string]string) error
 ```
 
@@ -33,7 +33,7 @@ func (c *Connection) Initial(params map[string]string) error {
 }
 
 //Destory 销毁连接
-func (c *Connection) Destory() error {
+func (c *Connection) Destory(params map[string]string) error {
 	return c.TCPConn.Close()
 }
 

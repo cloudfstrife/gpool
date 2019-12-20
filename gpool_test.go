@@ -31,8 +31,11 @@ func (c *testingItem) Initial(params map[string]string) error {
 }
 
 //Destory Destory tesing item
-func (c *testingItem) Destory() error {
+func (c *testingItem) Destory(params map[string]string) error {
 	c.disabled = true
+	if msg, ok := params["DestoryError"]; ok {
+		return errors.New(msg)
+	}
 	return nil
 }
 
@@ -83,7 +86,6 @@ func TestGetOne(t *testing.T) {
 func TestGetOneWithExtend(t *testing.T) {
 	pool := DefaultPool(newTestingItem)
 	pool.Initial()
-
 	for i := 0; i < pool.Config.InitialPoolSize-pool.Config.MinPoolSize; i++ {
 		_, err := pool.GetOne()
 		if err != nil {
@@ -110,7 +112,6 @@ func TestExtend(t *testing.T) {
 	if pool.items.Len() != pool.Config.InitialPoolSize {
 		t.Errorf("WANT item count : %d FIND : %d", pool.Config.InitialPoolSize, pool.items.Len())
 	}
-
 }
 
 func TestExtendOverMaxPoolSize(t *testing.T) {
@@ -118,6 +119,19 @@ func TestExtendOverMaxPoolSize(t *testing.T) {
 	pool.extend(pool.Config.MaxPoolSize + 1)
 	if pool.items.Len() != pool.Config.MaxPoolSize {
 		t.Errorf("WANT item count : %d FIND : %d", pool.Config.InitialPoolSize+pool.Config.AcquireIncrement, pool.items.Len())
+	}
+}
+
+func TestExtendWithShutdown(t *testing.T) {
+	pool := DefaultPool(newTestingItem)
+	pool.Initial()
+	wg := &sync.WaitGroup{}
+	wg.Add(1)
+	pool.Shutdown(wg)
+	wg.Wait()
+	pool.extend(pool.Config.MaxPoolSize)
+	if pool.items.Len() != 0 {
+		t.Errorf("WANT item count : %d FIND : %d", 0, pool.items.Len())
 	}
 }
 
@@ -141,6 +155,7 @@ func TestBackOne(t *testing.T) {
 
 func TestBackOneWithDrop(t *testing.T) {
 	pool := DefaultPool(newTestingItem)
+	pool.Config.Params["DestoryError"] = "Testing"
 	pool.Initial()
 
 	for i := 0; i < pool.Config.MaxPoolSize-pool.Config.InitialPoolSize; i++ {
@@ -182,9 +197,26 @@ func TestShutdown(t *testing.T) {
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
 	pool.Shutdown(wg)
+	wg.Wait()
 	item, err := pool.GetOne()
 	if item != nil || err == nil || err != ErrHasBeenShotdown {
 		t.Errorf("WANT : nil , ErrHasBeenShotdown FIND : %#v , %#v", item, err)
+	}
+	if pool.items.Len() != 0 || !pool.shutdown {
+		t.Errorf("WANT : %#v , %#v FIND : %#v , %#v", 0, true, pool.items.Len(), pool.shutdown)
+	}
+}
+
+func TestShutdownWithError(t *testing.T) {
+	pool := DefaultPool(newTestingItem)
+	pool.Config.Params["DestoryError"] = "Testing"
+	pool.Initial()
+	wg := &sync.WaitGroup{}
+	wg.Add(1)
+	pool.Shutdown(wg)
+	wg.Wait()
+	if pool.items.Len() != 0 || !pool.shutdown {
+		t.Errorf("WANT : %#v , %#v FIND : %#v , %#v", 0, true, pool.items.Len(), pool.shutdown)
 	}
 }
 
@@ -223,5 +255,19 @@ func TestCheckAvaiableWithError(t *testing.T) {
 	}
 	if item != nil || !reflect.DeepEqual(wantErr, err) {
 		t.Errorf("WANT : %#v , %#v FIND : %#v , %#v", nil, wantErr, item, err)
+	}
+}
+func TestCheckAvaiableWithShutdown(t *testing.T) {
+	pool := DefaultPool(newTestingItem)
+	pool.Config.Params["CheckError"] = "Testing"
+	pool.Config.TestOnGetItem = true
+	pool.extend(pool.Config.InitialPoolSize)
+	wg := &sync.WaitGroup{}
+	wg.Add(1)
+	pool.Shutdown(wg)
+	wg.Wait()
+	pool.checkAvaiable()
+	if pool.items.Len() != 0 {
+		t.Errorf("WANT : %d FIND : %d", 0, pool.items.Len())
 	}
 }
