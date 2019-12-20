@@ -12,3 +12,8 @@
 *.out
 
 .scannerwork
+
+./testing/test.report
+./testing/cover.report
+./testing/golangci-line.xml
+./testing/goline.report
